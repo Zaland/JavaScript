@@ -1,3 +1,4 @@
+// validates the input from user to make sure its optimal
 function validate()
 {
     // prevent the default action when the submit button is pressed
