@@ -69,8 +69,8 @@
             function estimate(event)
             {
                 // store the values in variables
-                var b_potatoes = document.getElementById('potatoes').value;
-                var b_tomatoes = document.getElementById('tomatoes').value;
+                var b_potatoes = parseInt(document.getElementById('potatoes').value, 10);
+                var b_tomatoes = parseInt(document.getElementById('tomatoes').value, 10);
                 var b_delivery;
                 
                 // grab the radio buttons and store it in temp
@@ -87,16 +87,32 @@
                 var estimate = (b_potatoes * 2) + (b_tomatoes * 1);
                 
                 // calculate the delivery fee
+                var shipping = 0;
                 if(b_delivery == 'mail')
-                    estimate += 2;
+                {
+                    shipping = 2;
+                    estimate += shipping;
+                }
                 else if(b_delivery == 'ups')
-                    estimate += 5;
+                {
+                    shipping = 5;
+                    estimate += shipping;
+                }
                     
                 // add 15% tax to the total
                 estimate *= 1.15;
                 
                 // set the value of the estimate input box to the estimate value calculated
                 document.getElementById('txt-estimate').value = '$' + estimate.toFixed(2);
+                
+                var total_products = b_potatoes + b_tomatoes;
+                var estimate_notax = estimate/1.15;
+                
+                // set the value of the results div
+                document.getElementById('results').innerHTML = '<br>Total items: $' + total_products;
+                document.getElementById('results').innerHTML += '<br>Total shipping: $' + shipping;
+                document.getElementById('results').innerHTML += '<br>Total (without tax): $' + estimate_notax.toFixed(2);
+                document.getElementById('results').innerHTML += '<br>Total (with tax): $' + estimate.toFixed(2);
             }
         </script>
     </body>
