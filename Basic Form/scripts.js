@@ -80,8 +80,13 @@ function estimate()
     document.getElementById('results').innerHTML += '<br>Total (with tax): $' + estimate.toFixed(2);
 }
 
-// clears the innerHTML data that might have been inputted before
+// clears the data in the fields
 function clearScreen()
 {
     document.getElementById('results').innerHTML = '';
+    document.getElementById('potatoes').value = '';
+    document.getElementById('tomatoes').value = '';
+    document.getElementById('tomatoes').value = '';
+    document.getElementById('txt-estimate').value = '';
+    document.getElementById('cart').delivery[0].checked = true;
 }
