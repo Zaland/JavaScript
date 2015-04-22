@@ -65,9 +65,38 @@
                 }
             }
             
+            // the function that calculates the estimate
             function estimate(event)
             {
-                alert('reached here');
+                // store the values in variables
+                var b_potatoes = document.getElementById('potatoes').value;
+                var b_tomatoes = document.getElementById('tomatoes').value;
+                var b_delivery;
+                
+                // grab the radio buttons and store it in temp
+                var temp = document.getElementById('cart').delivery;
+                
+                // loop through until radio button is found and then store it in b_delivery
+                for(var i = 0; i < temp.length; i++)
+                {
+                    if(temp[i].checked == true)
+                        b_delivery = temp[i].value;
+                }
+                
+                // calculate the estimate value of the products
+                var estimate = (b_potatoes * 2) + (b_tomatoes * 1);
+                
+                // calculate the delivery fee
+                if(b_delivery == 'mail')
+                    estimate += 2;
+                else if(b_delivery == 'ups')
+                    estimate += 5;
+                    
+                // add 15% tax to the total
+                estimate *= 1.15;
+                
+                // set the value of the estimate input box to the estimate value calculated
+                document.getElementById('txt-estimate').value = '$' + estimate.toFixed(2);
             }
         </script>
     </body>
