@@ -79,3 +79,9 @@ function estimate()
     document.getElementById('results').innerHTML += '<br>Total (without tax): $' + estimate_notax.toFixed(2);
     document.getElementById('results').innerHTML += '<br>Total (with tax): $' + estimate.toFixed(2);
 }
+
+// clears the innerHTML data that might have been inputted before
+function clearScreen()
+{
+    document.getElementById('results').innerHTML = '';
+}
