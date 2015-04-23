@@ -1,43 +1,53 @@
 <head>
     <!-- stores the functions for validating and estimating -->
     <script src="scripts.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 
 <html>
     <body>
-        <!-- form -->
-        <h2> Form </h2>
-        <form name="cart" id="cart">
-            <!-- choice of products and quantity -->
-            <div class="form-group">
-                <label> Potatoes ($2/item): </label>
-                <input type="text" id="potatoes" size="1" placeholder="0">
+        <div class="container">
+            <div class="jumbotron">
+                <!-- form -->
+                <h2> Form </h2>
+                <form name="cart" id="cart">
+                    <!-- choice of products and quantity -->
+                    <div class="form-group">
+                        <label> Potatoes ($2/item): </label>
+                        <input type="text" id="potatoes" size="1" placeholder="0">
+                    </div>
+                    <div class="form-group" style="padding-top:20px">
+                        <label> Tomatoes ($1/item): </label>
+                        <input type="text" id="tomatoes" size="1" placeholder="0">
+                    </div>
+                    
+                    <!-- shipping method -->
+                    <div class="form-group" style="padding-top:20px">
+                        <label> Shipping Method: </label> <br>
+                        <input type="radio" name="delivery" value="pickup" id="pickup" checked> Pickup (free) </input> <br>
+                        <input type="radio" name="delivery" value="mail" id="mail"> CAN Mail ($2) </input> <br>
+                        <input type="radio" name="delivery" value="ups" id="ups"> UPS ($5) </input> <br>
+                    </div>
+                    
+                    <!-- estimating total -->
+                    <div class="form-group" style="padding-top:20px">
+                        <label> Click to estimate: </label>
+                        <input type="button" onclick="validate()" value="Estimate Total" id="btn-estimate">
+                        <input type="text" id="txt-estimate" placeholder="$0.00">
+                    </div>
+                    
+                    <!-- placeholder for displaying the extra information -->
+                    <div id="results"></div>
+                    
+                    <!-- clears the entire screen -->
+                    <input type="button" onclick="clearScreen()" value="Clear" id="btn-clear">
+                </form>
             </div>
-            <div class="form-group" style="padding-top:20px">
-                <label> Tomatoes ($1/item): </label>
-                <input type="text" id="tomatoes" size="1" placeholder="0">
-            </div>
-            
-            <!-- shipping method -->
-            <div class="form-group" style="padding-top:20px">
-                <label> Shipping Method: </label> <br>
-                <input type="radio" name="delivery" value="pickup" id="pickup" checked> Pickup (free) </input> <br>
-                <input type="radio" name="delivery" value="mail" id="mail"> CAN Mail ($2) </input> <br>
-                <input type="radio" name="delivery" value="ups" id="ups"> UPS ($5) </input> <br>
-            </div>
-            
-            <!-- estimating total -->
-            <div class="form-group" style="padding-top:20px">
-                <label> Click to estimate: </label>
-                <input type="button" onclick="validate()" value="Estimate Total" id="btn-estimate">
-                <input type="text" id="txt-estimate" placeholder="$0.00">
-            </div>
-            
-            <!-- placeholder for displaying the extra information -->
-            <div id="results"></div>
-            
-            <!-- clears the entire screen -->
-            <input type="button" onclick="clearScreen()" value="Clear" id="btn-clear">
-        </form>
+        </div>
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </body>
 </html>

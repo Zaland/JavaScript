@@ -4,6 +4,12 @@ function validate()
     // prevent the default action when the submit button is pressed
     event.preventDefault();
     
+    // check to see if number is negative, if so set the value to 0
+    if(parseInt(document.getElementById('potatoes').value, 10) < 0)
+        document.getElementById('potatoes').value = 0;
+    if(parseInt(document.getElementById('tomatoes').value, 10) < 0)
+        document.getElementById('tomatoes').value = 0;
+    
     // check to see if potatoes has a value
     if(document.getElementById('potatoes').value == '')
     {
@@ -17,12 +23,6 @@ function validate()
         alert('Please enter the amount of tomatoes (0 if not buying)');
         document.getElementById('potatoes').focus();
     }
-    
-    // check to see if number is negative, if so set the value to 0
-    if(parseInt(document.getElementById('potatoes').value, 10) < 0)
-        document.getElementById('potatoes').value = 0;
-    if(parseInt(document.getElementById('tomatoes').value, 10) < 0)
-        document.getElementById('tomatoes').value = 0;
     
     // if all the tests above pass, then proceed to estimate the value
     else
